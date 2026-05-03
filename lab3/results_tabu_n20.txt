@@ -1,0 +1,30 @@
+--- Tabu Search Results for ../data/knapsack-20.txt (n=20, W=524) ---
+
+=== tenure = 30 ===
+
+Testing k = 1000 (5 runs)
+----------------------------------------
+Run 1: Quality = 782, Evaluations = 440, Iterations = 21, Time = 0.0008s
+Run 2: Quality = 785, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 3: Quality = 735, Evaluations = 460, Iterations = 22, Time = 0.0009s
+Run 4: Quality = 702, Evaluations = 460, Iterations = 22, Time = 0.0007s
+Run 5: Quality = 787, Evaluations = 420, Iterations = 20, Time = 0.0006s
+>> Avg Quality: 758.20 | Best: 787 | Worst: 702 | Avg Time: 0.0007s
+
+Testing k = 5000 (5 runs)
+----------------------------------------
+Run 1: Quality = 782, Evaluations = 440, Iterations = 21, Time = 0.0006s
+Run 2: Quality = 785, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 3: Quality = 735, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 4: Quality = 702, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 5: Quality = 787, Evaluations = 420, Iterations = 20, Time = 0.0006s
+>> Avg Quality: 758.20 | Best: 787 | Worst: 702 | Avg Time: 0.0006s
+
+Testing k = 10000 (5 runs)
+----------------------------------------
+Run 1: Quality = 782, Evaluations = 440, Iterations = 21, Time = 0.0006s
+Run 2: Quality = 785, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 3: Quality = 735, Evaluations = 460, Iterations = 22, Time = 0.0006s
+Run 4: Quality = 702, Evaluations = 460, Iterations = 22, Time = 0.0007s
+Run 5: Quality = 787, Evaluations = 420, Iterations = 20, Time = 0.0006s
+>> Avg Quality: 758.20 | Best: 787 | Worst: 702 | Avg Time: 0.0006s

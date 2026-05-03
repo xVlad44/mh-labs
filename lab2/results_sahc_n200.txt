@@ -1,0 +1,37 @@
+--- SAHC Results for ../data/knapsack-200.txt (n=200, W=112648) ---
+
+Testing k = 100 (5 runs)
+------------------------------
+Run 1: Quality = 0, Time = 0.0011s
+Run 2: Quality = 0, Time = 0.0013s
+Run 3: Quality = 0, Time = 0.0011s
+Run 4: Quality = 0, Time = 0.0010s
+Run 5: Quality = 0, Time = 0.0010s
+>> Average Quality for k=100: 0.00
+
+Testing k = 1000 (5 runs)
+------------------------------
+Run 1: Quality = 0, Time = 0.0109s
+Run 2: Quality = 96733, Time = 0.0113s
+Run 3: Quality = 0, Time = 0.0095s
+Run 4: Quality = 96738, Time = 0.0097s
+Run 5: Quality = 0, Time = 0.0103s
+>> Average Quality for k=1000: 38694.20
+
+Testing k = 10000 (5 runs)
+------------------------------
+Run 1: Quality = 95078, Time = 0.1060s
+Run 2: Quality = 96223, Time = 0.1367s
+Run 3: Quality = 97412, Time = 0.1155s
+Run 4: Quality = 97622, Time = 0.1257s
+Run 5: Quality = 96946, Time = 0.1078s
+>> Average Quality for k=10000: 96656.20
+
+Testing k = 100000 (5 runs)
+------------------------------
+Run 1: Quality = 96835, Time = 1.0772s
+Run 2: Quality = 97318, Time = 1.0633s
+Run 3: Quality = 97361, Time = 1.1356s
+Run 4: Quality = 97233, Time = 1.0475s
+Run 5: Quality = 97288, Time = 1.0905s
+>> Average Quality for k=100000: 97207.00

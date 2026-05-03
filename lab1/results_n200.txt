@@ -1,0 +1,37 @@
+--- Experiment Results for knapsack-200.txt (n=200, W=112648) ---
+
+Testing k = 10 (5 runs)
+------------------------------
+Run 1: Quality = 0, Time = 0.0014s
+Run 2: Quality = 0, Time = 0.0016s
+Run 3: Quality = 0, Time = 0.0014s
+Run 4: Quality = 0, Time = 0.0014s
+Run 5: Quality = 0, Time = 0.0016s
+>> Average Quality for k=10: 0.00
+
+Testing k = 100 (5 runs)
+------------------------------
+Run 1: Quality = 95436, Time = 0.0166s
+Run 2: Quality = 95960, Time = 0.0155s
+Run 3: Quality = 95350, Time = 0.0122s
+Run 4: Quality = 94124, Time = 0.0109s
+Run 5: Quality = 95836, Time = 0.0090s
+>> Average Quality for k=100: 95341.20
+
+Testing k = 1000 (5 runs)
+------------------------------
+Run 1: Quality = 96462, Time = 0.0962s
+Run 2: Quality = 96389, Time = 0.0926s
+Run 3: Quality = 96687, Time = 0.0840s
+Run 4: Quality = 96992, Time = 0.1030s
+Run 5: Quality = 96638, Time = 0.1238s
+>> Average Quality for k=1000: 96633.60
+
+Testing k = 10000 (5 runs)
+------------------------------
+Run 1: Quality = 96833, Time = 1.0038s
+Run 2: Quality = 97090, Time = 1.0611s
+Run 3: Quality = 96753, Time = 0.9820s
+Run 4: Quality = 97291, Time = 1.0971s
+Run 5: Quality = 96656, Time = 0.9990s
+>> Average Quality for k=10000: 96924.60

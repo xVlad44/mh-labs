@@ -1,0 +1,43 @@
+--- Simulated Annealing Knapsack Results for ../data/knapsack-20.txt ---
+n=20, capacity=524, runs_per_setting=5
+Greedy baseline value=787
+
+======================================================================
+Setting 1: cooling=geom, init_mode=greedy, move_mode=1flip, neighbor_samples=1, T_init=10000, alpha=0.99, T_min=0.001, max_iter=3000, target=None
+----------------------------------------------------------------------
+Run 1: value=787, time=0.0050s, accepted=468
+Run 2: value=787, time=0.0046s, accepted=471
+Run 3: value=787, time=0.0046s, accepted=464
+Run 4: value=787, time=0.0053s, accepted=484
+Run 5: value=787, time=0.0053s, accepted=485
+>> avg=787.00, best=787, worst=787, avg_time=0.0049s, avg_improvement_vs_greedy=0.00%
+
+======================================================================
+Setting 2: cooling=geom, init_mode=greedy, move_mode=2flip, neighbor_samples=25, T_init=10000, alpha=0.995, T_min=0.001, max_iter=5000, target=None
+----------------------------------------------------------------------
+Run 1: value=787, time=0.3041s, accepted=1202
+Run 2: value=787, time=0.2845s, accepted=1222
+Run 3: value=787, time=0.2793s, accepted=1212
+Run 4: value=787, time=0.2676s, accepted=1221
+Run 5: value=787, time=0.2661s, accepted=1193
+>> avg=787.00, best=787, worst=787, avg_time=0.2803s, avg_improvement_vs_greedy=0.00%
+
+======================================================================
+Setting 3: cooling=log, init_mode=greedy, move_mode=mixed, neighbor_samples=20, T_init=10000, alpha=0.99, T_min=0.001, max_iter=3000, target=None
+----------------------------------------------------------------------
+Run 1: value=787, time=0.0012s, accepted=13
+Run 2: value=787, time=0.0011s, accepted=12
+Run 3: value=787, time=0.0015s, accepted=15
+Run 4: value=787, time=0.0013s, accepted=14
+Run 5: value=787, time=0.0012s, accepted=13
+>> avg=787.00, best=787, worst=787, avg_time=0.0013s, avg_improvement_vs_greedy=0.00%
+
+======================================================================
+Setting 4: cooling=invk, init_mode=greedy, move_mode=mixed, neighbor_samples=20, T_init=10000, alpha=0.99, T_min=0.001, max_iter=3000, target=None
+----------------------------------------------------------------------
+Run 1: value=787, time=0.0010s, accepted=5
+Run 2: value=787, time=0.0006s, accepted=7
+Run 3: value=787, time=0.0006s, accepted=7
+Run 4: value=787, time=0.0006s, accepted=8
+Run 5: value=787, time=0.0006s, accepted=8
+>> avg=787.00, best=787, worst=787, avg_time=0.0007s, avg_improvement_vs_greedy=0.00%

@@ -1,0 +1,37 @@
+==============================================================================
+CUCKOO SEARCH VIA LEVY FLIGHTS -- FINAL PROJECT EXPERIMENTS
+==============================================================================
+All objective functions are minimized. Each row summarizes 10 independent runs.
+
+------------------------------------------------------------------------------
+FUNCTION: Sphere
+------------------------------------------------------------------------------
+Setting            Algorithm                  Avg          Best         Worst           Std
+CS-balanced        Cuckoo Search       4.5538e-06    8.7652e-07    1.2830e-05    3.5001e-06
+CS-exploratory     Cuckoo Search       3.0123e-07    3.2786e-08    7.9231e-07    2.6055e-07
+CS-conservative    Cuckoo Search       1.5366e-04    1.9301e-06        0.0010    2.9898e-04
+Random Search      Random Search          13.1504       10.8552       17.3216        1.9149
+
+------------------------------------------------------------------------------
+FUNCTION: Rastrigin
+------------------------------------------------------------------------------
+Setting            Algorithm                  Avg          Best         Worst           Std
+CS-balanced        Cuckoo Search          15.3463        6.9660       25.8689        6.1452
+CS-exploratory     Cuckoo Search          13.5344        3.9800       27.8588        7.6954
+CS-conservative    Cuckoo Search          14.0771        4.2464       23.8929        5.8819
+Random Search      Random Search          67.6907       58.5309       78.3334        6.0726
+
+------------------------------------------------------------------------------
+FUNCTION: Michalewicz
+------------------------------------------------------------------------------
+Setting            Algorithm                  Avg          Best         Worst           Std
+CS-balanced        Cuckoo Search          -8.3317       -9.2171       -7.4807        0.4952
+CS-exploratory     Cuckoo Search          -8.5978       -9.3788       -7.0482        0.6931
+CS-conservative    Cuckoo Search          -8.2501       -9.2042       -6.9360        0.8628
+Random Search      Random Search          -4.8030       -5.1689       -4.3890        0.2801
+
+Notes:
+* CS-balanced is the main configuration used in the presentation.
+* Random Search uses the same evaluation budget as CS-balanced.
+* The exploratory setting increases the Levy step scale alpha.
+* The conservative setting lowers the nest discovery probability pa.

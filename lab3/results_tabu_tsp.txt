@@ -1,0 +1,34 @@
+--- Tabu Search TSP Results ---
+Runs per parameter setting: 5
+
+======================================================================
+Instance: pr107 | n=107
+======================================================================
+Greedy baseline length: 46678.15
+
+Params: iterations=200, tenure=10, neighborhood=40, restarts=5
+----------------------------------------------------------------------
+Run 1: length=46156.08, time=0.6577s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=46316.07, time=0.6535s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 3: length=46678.15, time=0.6568s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 4: length=46482.84, time=0.6654s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 5: length=46395.31, time=0.6537s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+>> Avg length=46405.69 | Best=46156.08 | Worst=46678.15 | Avg time=0.6574s | Avg improvement vs greedy=0.58%
+
+Params: iterations=350, tenure=15, neighborhood=60, restarts=7
+----------------------------------------------------------------------
+Run 1: length=46292.87, time=2.4537s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=46316.07, time=2.5801s, tour_prefix=[0, 3, 2, 5, 4, 1, 6, 8, 9, 10]
+Run 3: length=46433.09, time=2.6159s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 4: length=46198.00, time=2.6834s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 5: length=46411.45, time=2.5465s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 7]
+>> Avg length=46330.30 | Best=46198.00 | Worst=46433.09 | Avg time=2.5759s | Avg improvement vs greedy=0.75%
+
+Params: iterations=500, tenure=20, neighborhood=80, restarts=10
+----------------------------------------------------------------------
+Run 1: length=46155.96, time=6.4878s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+Run 2: length=46027.41, time=6.7890s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+Run 3: length=46255.38, time=6.7633s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 4: length=46080.84, time=6.8876s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 5: length=45959.71, time=7.0545s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 7]
+>> Avg length=46095.86 | Best=45959.71 | Worst=46255.38 | Avg time=6.7964s | Avg improvement vs greedy=1.25%

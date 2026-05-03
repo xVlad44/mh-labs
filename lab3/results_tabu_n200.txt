@@ -1,0 +1,88 @@
+--- Tabu Search Results for ../data/knapsack-200.txt (n=200, W=112648) ---
+
+=== tenure = 3 ===
+
+Testing k = 1000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0109s
+Run 2: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0302s
+Run 3: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0297s
+Run 4: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0172s
+Run 5: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0106s
+>> Avg Quality: 0.00 | Best: 0 | Worst: 0 | Avg Time: 0.0197s
+
+Testing k = 5000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0492s
+Run 2: Quality = 96137, Evaluations = 5000, Iterations = 25, Time = 0.0470s
+Run 3: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0490s
+Run 4: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0479s
+Run 5: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0452s
+>> Avg Quality: 19227.40 | Best: 96137 | Worst: 0 | Avg Time: 0.0477s
+
+Testing k = 10000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1058s
+Run 2: Quality = 96137, Evaluations = 10000, Iterations = 50, Time = 0.0900s
+Run 3: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.0953s
+Run 4: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1027s
+Run 5: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.0983s
+>> Avg Quality: 19227.40 | Best: 96137 | Worst: 0 | Avg Time: 0.0984s
+
+=== tenure = 7 ===
+
+Testing k = 1000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0114s
+Run 2: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0126s
+Run 3: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0140s
+Run 4: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0113s
+Run 5: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0104s
+>> Avg Quality: 0.00 | Best: 0 | Worst: 0 | Avg Time: 0.0120s
+
+Testing k = 5000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0540s
+Run 2: Quality = 96133, Evaluations = 5000, Iterations = 25, Time = 0.0519s
+Run 3: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0475s
+Run 4: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0475s
+Run 5: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0533s
+>> Avg Quality: 19226.60 | Best: 96133 | Worst: 0 | Avg Time: 0.0509s
+
+Testing k = 10000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1025s
+Run 2: Quality = 96248, Evaluations = 10000, Iterations = 50, Time = 0.1125s
+Run 3: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1009s
+Run 4: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1112s
+Run 5: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1120s
+>> Avg Quality: 19249.60 | Best: 96248 | Worst: 0 | Avg Time: 0.1078s
+
+=== tenure = 15 ===
+
+Testing k = 1000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0106s
+Run 2: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0097s
+Run 3: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0104s
+Run 4: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0104s
+Run 5: Quality = 0, Evaluations = 1000, Iterations = 5, Time = 0.0097s
+>> Avg Quality: 0.00 | Best: 0 | Worst: 0 | Avg Time: 0.0102s
+
+Testing k = 5000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0470s
+Run 2: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0447s
+Run 3: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0511s
+Run 4: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0573s
+Run 5: Quality = 0, Evaluations = 5000, Iterations = 25, Time = 0.0606s
+>> Avg Quality: 0.00 | Best: 0 | Worst: 0 | Avg Time: 0.0522s
+
+Testing k = 10000 (5 runs)
+----------------------------------------
+Run 1: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1100s
+Run 2: Quality = 96204, Evaluations = 10000, Iterations = 50, Time = 0.1039s
+Run 3: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.0960s
+Run 4: Quality = 0, Evaluations = 10000, Iterations = 50, Time = 0.1003s
+Run 5: Quality = 96231, Evaluations = 10000, Iterations = 50, Time = 0.0949s
+>> Avg Quality: 38487.00 | Best: 96231 | Worst: 0 | Avg Time: 0.1010s

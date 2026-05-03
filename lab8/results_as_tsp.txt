@@ -1,0 +1,70 @@
+==============================================================================
+  ANT SYSTEM (AS) -- Lab 8 parameter test
+  TSP instance: berlin52  (n=52, known optimum = 7542)
+==============================================================================
+
+Nearest-neighbor baseline : 8980.92
+Runs per setting          : 3
+Seeds                     : 1000..1002
+Pheromone init            : tau_0 = n_ants / L_nn
+
+Setting      alpha  beta   rho  ants  iter        avg       best      worst    gap%
+baseline       1.0   2.0  0.50    10    30    8256.30    8054.08    8517.81  +6.79%
+high-beta      1.0   5.0  0.50    10    30    8042.64    7962.04    8095.23  +5.57%
+high-alpha     2.0   2.0  0.50    10    30    8428.08    8116.14    8792.89  +7.61%
+low-evap       1.0   2.0  0.10    10    30    9241.30    9182.69    9324.03 +21.75%
+high-evap      1.0   2.0  0.90    10    30    8194.23    7709.70    8510.37  +2.22%
+more-ants      1.0   2.0  0.50    30    30    8023.19    7911.52    8171.04  +4.90%
+more-iters     1.0   2.0  0.50    10   100    7912.75    7829.83    8052.24  +3.82%
+
+------------------------------------------------------------------------------
+[baseline]
+  parameters : alpha=1.0, beta=2.0, rho=0.5, n_ants=10, iterations=30, Q=1.0
+  runs       : 3
+  individual : 8054.08, 8517.81, 8197.01
+  avg=8256.30  best=8054.08  worst=8517.81  gap_to_opt=+6.79%  total_time=0.64s
+
+------------------------------------------------------------------------------
+[high-beta]
+  parameters : alpha=1.0, beta=5.0, rho=0.5, n_ants=10, iterations=30, Q=1.0
+  runs       : 3
+  individual : 8095.23, 7962.04, 8070.64
+  avg=8042.64  best=7962.04  worst=8095.23  gap_to_opt=+5.57%  total_time=0.64s
+
+------------------------------------------------------------------------------
+[high-alpha]
+  parameters : alpha=2.0, beta=2.0, rho=0.5, n_ants=10, iterations=30, Q=1.0
+  runs       : 3
+  individual : 8792.89, 8116.14, 8375.21
+  avg=8428.08  best=8116.14  worst=8792.89  gap_to_opt=+7.61%  total_time=0.61s
+
+------------------------------------------------------------------------------
+[low-evap]
+  parameters : alpha=1.0, beta=2.0, rho=0.1, n_ants=10, iterations=30, Q=1.0
+  runs       : 3
+  individual : 9324.03, 9217.17, 9182.69
+  avg=9241.30  best=9182.69  worst=9324.03  gap_to_opt=+21.75%  total_time=0.61s
+
+------------------------------------------------------------------------------
+[high-evap]
+  parameters : alpha=1.0, beta=2.0, rho=0.9, n_ants=10, iterations=30, Q=1.0
+  runs       : 3
+  individual : 8362.62, 7709.70, 8510.37
+  avg=8194.23  best=7709.70  worst=8510.37  gap_to_opt=+2.22%  total_time=0.61s
+
+------------------------------------------------------------------------------
+[more-ants]
+  parameters : alpha=1.0, beta=2.0, rho=0.5, n_ants=30, iterations=30, Q=1.0
+  runs       : 3
+  individual : 8171.04, 7911.52, 7987.03
+  avg=8023.19  best=7911.52  worst=8171.04  gap_to_opt=+4.90%  total_time=1.88s
+
+------------------------------------------------------------------------------
+[more-iters]
+  parameters : alpha=1.0, beta=2.0, rho=0.5, n_ants=10, iterations=100, Q=1.0
+  runs       : 3
+  individual : 7856.16, 7829.83, 8052.24
+  avg=7912.75  best=7829.83  worst=8052.24  gap_to_opt=+3.82%  total_time=2.33s
+
+==============================================================================
+End of report

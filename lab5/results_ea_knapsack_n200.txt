@@ -1,0 +1,35 @@
+--- EA Knapsack Results for ../data/knapsack-200.txt ---
+n=200, capacity=112648, runs_per_setting=3
+Greedy baseline value=101068
+
+======================================================================
+Setting 1: pop_size=100, gen=300, tourn_size=3, cross_rate=0.8, mut_rate=0.005, elitism=True
+----------------------------------------------------------------------
+Run 1: value=99835, time=1.5286s
+Run 2: value=100141, time=1.3782s
+Run 3: value=100043, time=1.3559s
+>> avg=100006.33, best=100141, worst=99835, avg_time=1.4209s, improve_vs_greedy=-1.05%
+
+======================================================================
+Setting 2: pop_size=200, gen=500, tourn_size=3, cross_rate=0.9, mut_rate=0.010, elitism=True
+----------------------------------------------------------------------
+Run 1: value=99520, time=4.6922s
+Run 2: value=99620, time=4.9392s
+Run 3: value=99683, time=5.7898s
+>> avg=99607.67, best=99683, worst=99520, avg_time=5.1404s, improve_vs_greedy=-1.44%
+
+======================================================================
+Setting 3: pop_size=100, gen=300, tourn_size=3, cross_rate=0.7, mut_rate=0.050, elitism=True
+----------------------------------------------------------------------
+Run 1: value=98127, time=1.4738s
+Run 2: value=98135, time=1.3892s
+Run 3: value=98146, time=1.3217s
+>> avg=98136.00, best=98146, worst=98127, avg_time=1.3949s, improve_vs_greedy=-2.90%
+
+======================================================================
+Setting 4: pop_size=300, gen=600, tourn_size=3, cross_rate=0.85, mut_rate=0.010, elitism=True
+----------------------------------------------------------------------
+Run 1: value=99795, time=9.2357s
+Run 2: value=99523, time=10.9611s
+Run 3: value=99621, time=9.4152s
+>> avg=99646.33, best=99795, worst=99523, avg_time=9.8706s, improve_vs_greedy=-1.41%

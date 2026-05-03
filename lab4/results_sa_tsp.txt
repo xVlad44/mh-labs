@@ -1,0 +1,54 @@
+--- Simulated Annealing TSP Results ---
+Runs per parameter setting: 3
+
+========================================================================
+Instance: pr107 | n=107
+========================================================================
+Greedy baseline length: 46678.15
+
+Params: T_init=3000, alpha=0.995, T_min=0.0001, nr_iter=8000, neighbor_samples=20, init_mode=greedy
+------------------------------------------------------------------------
+Run 1: length=44824.32, time=0.1183s, accepted=701, route_prefix=[0, 3, 2, 6, 8, 9, 7, 10, 11, 12]
+Run 2: length=45357.33, time=0.1389s, accepted=654, route_prefix=[0, 2, 3, 7, 6, 8, 9, 10, 11, 12]
+Run 3: length=45936.96, time=0.1482s, accepted=696, route_prefix=[0, 3, 11, 10, 12, 15, 14, 17, 16, 19]
+>> Avg length=45372.87 | Best=44824.32 | Worst=45936.96 | Avg time=0.1351s | Avg improvement vs greedy=2.80%
+
+Params: T_init=5000, alpha=0.994, T_min=0.0001, nr_iter=12000, neighbor_samples=30, init_mode=greedy
+------------------------------------------------------------------------
+Run 1: length=45065.62, time=0.1910s, accepted=652, route_prefix=[0, 3, 2, 5, 4, 6, 8, 9, 7, 10]
+Run 2: length=45038.95, time=0.1600s, accepted=757, route_prefix=[0, 5, 4, 1, 62, 63, 65, 66, 64, 67]
+Run 3: length=45202.37, time=0.1520s, accepted=668, route_prefix=[0, 5, 4, 1, 62, 65, 63, 64, 67, 66]
+>> Avg length=45102.31 | Best=45038.95 | Worst=45202.37 | Avg time=0.1677s | Avg improvement vs greedy=3.38%
+
+Params: T_init=8000, alpha=0.993, T_min=1e-05, nr_iter=16000, neighbor_samples=40, init_mode=random
+------------------------------------------------------------------------
+Run 1: length=46685.08, time=0.2176s, accepted=769, route_prefix=[0, 2, 5, 1, 4, 6, 8, 9, 13, 16]
+Run 2: length=45610.11, time=0.2391s, accepted=793, route_prefix=[0, 1, 62, 63, 65, 66, 64, 67, 68, 71]
+Run 3: length=47052.95, time=0.2117s, accepted=758, route_prefix=[0, 2, 3, 11, 10, 12, 14, 15, 18, 21]
+>> Avg length=46449.38 | Best=45610.11 | Worst=47052.95 | Avg time=0.2228s | Avg improvement vs greedy=0.49%
+
+========================================================================
+Instance: lu980 | n=980
+========================================================================
+Greedy baseline length: 14212.72
+
+Params: T_init=3000, alpha=0.995, T_min=0.0001, nr_iter=8000, neighbor_samples=20, init_mode=greedy
+------------------------------------------------------------------------
+Run 1: length=14212.72, time=0.3017s, accepted=1417, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14212.72, time=0.3113s, accepted=1354, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14212.72, time=0.3024s, accepted=1398, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14212.72 | Best=14212.72 | Worst=14212.72 | Avg time=0.3051s | Avg improvement vs greedy=0.00%
+
+Params: T_init=5000, alpha=0.994, T_min=0.0001, nr_iter=12000, neighbor_samples=30, init_mode=greedy
+------------------------------------------------------------------------
+Run 1: length=14212.72, time=0.4531s, accepted=1338, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14212.72, time=0.3821s, accepted=1323, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14212.72, time=0.3747s, accepted=1405, route_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14212.72 | Best=14212.72 | Worst=14212.72 | Avg time=0.4033s | Avg improvement vs greedy=0.00%
+
+Params: T_init=8000, alpha=0.993, T_min=1e-05, nr_iter=16000, neighbor_samples=40, init_mode=random
+------------------------------------------------------------------------
+Run 1: length=39546.79, time=0.2854s, accepted=2173, route_prefix=[0, 706, 548, 572, 537, 277, 730, 253, 161, 466]
+Run 2: length=39713.99, time=0.2735s, accepted=2170, route_prefix=[0, 110, 926, 649, 373, 631, 448, 907, 354, 872]
+Run 3: length=38409.41, time=0.2712s, accepted=2156, route_prefix=[0, 312, 725, 575, 581, 582, 793, 577, 391, 309]
+>> Avg length=39223.40 | Best=38409.41 | Worst=39713.99 | Avg time=0.2767s | Avg improvement vs greedy=-175.97%

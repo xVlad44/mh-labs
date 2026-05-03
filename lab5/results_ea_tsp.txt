@@ -1,0 +1,68 @@
+--- Evolutionary Algorithm TSP Results ---
+Runs per parameter setting: 3
+
+========================================================================
+Instance: pr107 | n=107
+========================================================================
+Greedy baseline length: 46678.15
+
+Params: crossover=ox, pop_size=60, generations=120, tournament=3, crossover_rate=0.9, mutation_type=swap, mutation_rate=0.1000, elitism=True
+------------------------------------------------------------------------
+Run 1: length=46547.47, time=1.3070s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=46480.70, time=1.2045s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+Run 3: length=46463.00, time=1.2058s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+>> Avg length=46497.06 | Best=46463.00 | Worst=46547.47 | Avg time=1.2391s | Avg improvement vs greedy=0.39%
+
+Params: crossover=ox, pop_size=80, generations=180, tournament=4, crossover_rate=0.9, mutation_type=inversion, mutation_rate=0.1500, elitism=True
+------------------------------------------------------------------------
+Run 1: length=45865.69, time=2.5022s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=45291.53, time=2.4647s, tour_prefix=[0, 3, 2, 5, 4, 1, 62, 63, 64, 67]
+Run 3: length=45702.31, time=2.4188s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 7]
+>> Avg length=45619.84 | Best=45291.53 | Worst=45865.69 | Avg time=2.4619s | Avg improvement vs greedy=2.27%
+
+Params: crossover=pmx, pop_size=60, generations=120, tournament=3, crossover_rate=0.9, mutation_type=swap, mutation_rate=0.1000, elitism=True
+------------------------------------------------------------------------
+Run 1: length=46547.47, time=0.3537s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=46480.70, time=0.3383s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+Run 3: length=46463.00, time=0.3542s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+>> Avg length=46497.06 | Best=46463.00 | Worst=46547.47 | Avg time=0.3487s | Avg improvement vs greedy=0.39%
+
+Params: crossover=pmx, pop_size=80, generations=180, tournament=4, crossover_rate=0.9, mutation_type=inversion, mutation_rate=0.1500, elitism=True
+------------------------------------------------------------------------
+Run 1: length=46100.00, time=0.7703s, tour_prefix=[0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+Run 2: length=45291.53, time=0.7755s, tour_prefix=[0, 3, 2, 5, 4, 1, 62, 63, 64, 67]
+Run 3: length=45741.30, time=0.7073s, tour_prefix=[0, 2, 3, 5, 1, 4, 6, 8, 9, 10]
+>> Avg length=45710.94 | Best=45291.53 | Worst=46100.00 | Avg time=0.7510s | Avg improvement vs greedy=2.07%
+
+========================================================================
+Instance: lu980 | n=980
+========================================================================
+Greedy baseline length: 14212.72
+
+Params: crossover=ox, pop_size=60, generations=120, tournament=3, crossover_rate=0.9, mutation_type=swap, mutation_rate=0.1000, elitism=True
+------------------------------------------------------------------------
+Run 1: length=14212.72, time=82.9345s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14212.59, time=81.5340s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14212.72, time=83.0848s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14212.68 | Best=14212.59 | Worst=14212.72 | Avg time=82.5177s | Avg improvement vs greedy=0.00%
+
+Params: crossover=ox, pop_size=80, generations=180, tournament=4, crossover_rate=0.9, mutation_type=inversion, mutation_rate=0.1500, elitism=True
+------------------------------------------------------------------------
+Run 1: length=14091.10, time=160.2070s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14179.22, time=134.0175s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14151.08, time=85.2733s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14140.46 | Best=14091.10 | Worst=14179.22 | Avg time=126.4993s | Avg improvement vs greedy=0.51%
+
+Params: crossover=pmx, pop_size=60, generations=120, tournament=3, crossover_rate=0.9, mutation_type=swap, mutation_rate=0.1000, elitism=True
+------------------------------------------------------------------------
+Run 1: length=14212.72, time=6.5636s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14212.59, time=6.4705s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14212.72, time=6.5850s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14212.68 | Best=14212.59 | Worst=14212.72 | Avg time=6.5397s | Avg improvement vs greedy=0.00%
+
+Params: crossover=pmx, pop_size=80, generations=180, tournament=4, crossover_rate=0.9, mutation_type=inversion, mutation_rate=0.1500, elitism=True
+------------------------------------------------------------------------
+Run 1: length=14143.05, time=13.0679s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 2: length=14209.14, time=13.3225s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+Run 3: length=14181.60, time=13.2502s, tour_prefix=[0, 1, 110, 683, 878, 877, 879, 253, 924, 729]
+>> Avg length=14177.93 | Best=14143.05 | Worst=14209.14 | Avg time=13.2136s | Avg improvement vs greedy=0.24%

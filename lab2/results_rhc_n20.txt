@@ -1,0 +1,37 @@
+--- RHC Results for ../data/knapsack-20.txt (n=20, W=524) ---
+
+Testing k = 100 (5 runs)
+------------------------------
+Run 1: Quality = 731, Time = 0.0002s
+Run 2: Quality = 723, Time = 0.0002s
+Run 3: Quality = 674, Time = 0.0002s
+Run 4: Quality = 425, Time = 0.0001s
+Run 5: Quality = 487, Time = 0.0001s
+>> Average Quality for k=100: 608.00
+
+Testing k = 1000 (5 runs)
+------------------------------
+Run 1: Quality = 596, Time = 0.0014s
+Run 2: Quality = 637, Time = 0.0017s
+Run 3: Quality = 639, Time = 0.0015s
+Run 4: Quality = 629, Time = 0.0014s
+Run 5: Quality = 530, Time = 0.0014s
+>> Average Quality for k=1000: 606.20
+
+Testing k = 10000 (5 runs)
+------------------------------
+Run 1: Quality = 640, Time = 0.0203s
+Run 2: Quality = 619, Time = 0.0233s
+Run 3: Quality = 599, Time = 0.0219s
+Run 4: Quality = 602, Time = 0.0254s
+Run 5: Quality = 648, Time = 0.0191s
+>> Average Quality for k=10000: 621.60
+
+Testing k = 100000 (5 runs)
+------------------------------
+Run 1: Quality = 544, Time = 0.1802s
+Run 2: Quality = 591, Time = 0.1802s
+Run 3: Quality = 568, Time = 0.1628s
+Run 4: Quality = 629, Time = 0.1588s
+Run 5: Quality = 518, Time = 0.2745s
+>> Average Quality for k=100000: 570.00

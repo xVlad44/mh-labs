@@ -1,0 +1,91 @@
+==============================================================================
+  EVOLUTIONARY ALGORITHM EXPERIMENTS -- Assignment A6
+  Real-coded EA compared across operator combinations
+==============================================================================
+
+Runs per config  : 10
+Random seed      : 42
+Dimensions       : 10
+Common params    : pop=50, generations=200, crossover_rate=0.8, mutation_rate=0.1, elitism=yes
+
+Operator configurations:
+  A: selection=tournament_selection   crossover=arithmetic_crossover   mutation=gaussian_mutation
+  B: selection=rank_selection         crossover=arithmetic_crossover   mutation=gaussian_mutation
+  C: selection=tournament_selection   crossover=blend_crossover        mutation=gaussian_mutation
+  D: selection=tournament_selection   crossover=arithmetic_crossover   mutation=uniform_mutation
+  E: selection=rank_selection         crossover=blend_crossover        mutation=uniform_mutation
+
+------------------------------------------------------------------------------
+FUNCTION: Sphere   (d=10, domain=[-5.12, 5.1200], known optimum ~= 0.0)
+------------------------------------------------------------------------------
+
+Config             avg          best         worst           std
+A           2.1964e-04    3.5663e-05    5.3567e-04    1.5594e-04
+B           1.7148e-03    8.5934e-04    2.7595e-03    5.7278e-04
+C           7.1195e-04    2.4797e-04    2.0485e-03    5.0828e-04
+D           1.2929e-02    4.8949e-03    2.2172e-02    5.9657e-03
+E           4.3619e-01    1.7999e-01    7.3117e-01    1.6400e-01
+
+  [Config A]  tournament_selection + arithmetic_crossover + gaussian_mutation
+    runs       : 10
+    individual : 3.5663e-05, 1.5679e-04, 1.1059e-04, 1.7041e-04, 1.3921e-04, 2.9692e-04, 1.0883e-04, 4.7256e-04, 5.3567e-04, 1.6971e-04
+    avg=2.196354e-04  best=3.566324e-05  worst=5.356701e-04  std=1.559378e-04
+
+  [Config B]  rank_selection + arithmetic_crossover + gaussian_mutation
+    runs       : 10
+    individual : 9.4786e-04, 1.5848e-03, 1.4660e-03, 8.5934e-04, 1.6204e-03, 1.5590e-03, 1.6925e-03, 2.3577e-03, 2.7595e-03, 2.3010e-03
+    avg=1.714805e-03  best=8.593365e-04  worst=2.759472e-03  std=5.727757e-04
+
+  [Config C]  tournament_selection + blend_crossover + gaussian_mutation
+    runs       : 10
+    individual : 8.3394e-04, 3.1148e-04, 2.0485e-03, 3.0554e-04, 9.1784e-04, 4.4238e-04, 4.2552e-04, 6.6840e-04, 2.4797e-04, 9.1801e-04
+    avg=7.119548e-04  best=2.479684e-04  worst=2.048471e-03  std=5.082765e-04
+
+  [Config D]  tournament_selection + arithmetic_crossover + uniform_mutation
+    runs       : 10
+    individual : 1.0849e-02, 1.3487e-02, 4.8949e-03, 1.4517e-02, 8.2705e-03, 5.4646e-03, 2.2172e-02, 2.1719e-02, 9.3750e-03, 1.8536e-02
+    avg=1.292859e-02  best=4.894874e-03  worst=2.217230e-02  std=5.965741e-03
+
+  [Config E]  rank_selection + blend_crossover + uniform_mutation
+    runs       : 10
+    individual : 6.4846e-01, 5.7170e-01, 2.2471e-01, 3.7102e-01, 3.8493e-01, 1.7999e-01, 7.3117e-01, 4.0842e-01, 4.2498e-01, 4.1654e-01
+    avg=4.361932e-01  best=1.799872e-01  worst=7.311737e-01  std=1.639994e-01
+
+------------------------------------------------------------------------------
+FUNCTION: Michalewicz   (d=10, domain=[0.0, 3.1416], known optimum ~= -9.66)
+------------------------------------------------------------------------------
+
+Config             avg          best         worst           std
+A          -9.1450e+00   -9.4707e+00   -8.7476e+00    2.2490e-01
+B          -8.3749e+00   -8.6949e+00   -7.6468e+00    3.1250e-01
+C          -9.0489e+00   -9.3996e+00   -8.5863e+00    2.5581e-01
+D          -8.7358e+00   -9.1999e+00   -7.9964e+00    3.2763e-01
+E          -7.4301e+00   -8.0345e+00   -6.6481e+00    4.0033e-01
+
+  [Config A]  tournament_selection + arithmetic_crossover + gaussian_mutation
+    runs       : 10
+    individual : -9.2444e+00, -9.3648e+00, -9.0173e+00, -8.9864e+00, -9.4707e+00, -8.7476e+00, -9.3785e+00, -9.3031e+00, -8.9786e+00, -8.9581e+00
+    avg=-9.144964e+00  best=-9.470706e+00  worst=-8.747598e+00  std=2.249018e-01
+
+  [Config B]  rank_selection + arithmetic_crossover + gaussian_mutation
+    runs       : 10
+    individual : -8.6122e+00, -8.6949e+00, -7.6468e+00, -8.4976e+00, -8.6032e+00, -8.2270e+00, -8.0540e+00, -8.3074e+00, -8.6705e+00, -8.4353e+00
+    avg=-8.374903e+00  best=-8.694918e+00  worst=-7.646755e+00  std=3.125006e-01
+
+  [Config C]  tournament_selection + blend_crossover + gaussian_mutation
+    runs       : 10
+    individual : -9.0405e+00, -9.3996e+00, -8.5863e+00, -9.1810e+00, -8.8752e+00, -9.1885e+00, -8.9349e+00, -9.3192e+00, -9.2603e+00, -8.7033e+00
+    avg=-9.048879e+00  best=-9.399637e+00  worst=-8.586291e+00  std=2.558121e-01
+
+  [Config D]  tournament_selection + arithmetic_crossover + uniform_mutation
+    runs       : 10
+    individual : -8.9237e+00, -8.9285e+00, -8.6133e+00, -8.8142e+00, -7.9964e+00, -9.1999e+00, -8.8103e+00, -8.3270e+00, -8.8099e+00, -8.9346e+00
+    avg=-8.735783e+00  best=-9.199887e+00  worst=-7.996383e+00  std=3.276337e-01
+
+  [Config E]  rank_selection + blend_crossover + uniform_mutation
+    runs       : 10
+    individual : -7.1318e+00, -7.7637e+00, -7.7713e+00, -8.0345e+00, -7.1299e+00, -7.3014e+00, -6.6481e+00, -7.8413e+00, -7.4311e+00, -7.2474e+00
+    avg=-7.430053e+00  best=-8.034503e+00  worst=-6.648118e+00  std=4.003300e-01
+
+==============================================================================
+End of report

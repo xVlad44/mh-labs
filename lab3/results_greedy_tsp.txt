@@ -1,0 +1,13 @@
+--- Greedy TSP Results ---
+
+Instance: pr107
+Dimension: 107
+Greedy tour length: 46678.15
+Execution time: 0.0013s
+Tour prefix (first 10 cities): [0, 2, 3, 5, 4, 1, 6, 8, 9, 10]
+
+Instance: lu980
+Dimension: 980
+Greedy tour length: 14212.72
+Execution time: 0.0760s
+Tour prefix (first 10 cities): [0, 1, 110, 683, 878, 877, 879, 253, 924, 729]

@@ -1,0 +1,43 @@
+--- EA Knapsack Results for ../data/knapsack-20.txt ---
+n=20, capacity=524, runs_per_setting=5
+Greedy baseline value=787
+
+======================================================================
+Setting 1: pop_size=50, gen=100, tourn_size=3, cross_rate=0.8, mut_rate=0.050, elitism=True
+----------------------------------------------------------------------
+Run 1: value=785, time=0.0762s
+Run 2: value=785, time=0.0474s
+Run 3: value=787, time=0.0446s
+Run 4: value=787, time=0.0453s
+Run 5: value=787, time=0.0594s
+>> avg=786.20, best=787, worst=785, avg_time=0.0546s, improve_vs_greedy=-0.10%
+
+======================================================================
+Setting 2: pop_size=100, gen=200, tourn_size=3, cross_rate=0.9, mut_rate=0.010, elitism=True
+----------------------------------------------------------------------
+Run 1: value=787, time=0.2580s
+Run 2: value=785, time=0.2428s
+Run 3: value=787, time=0.1886s
+Run 4: value=785, time=0.2217s
+Run 5: value=787, time=0.2538s
+>> avg=786.20, best=787, worst=785, avg_time=0.2330s, improve_vs_greedy=-0.10%
+
+======================================================================
+Setting 3: pop_size=50, gen=100, tourn_size=3, cross_rate=0.7, mut_rate=0.100, elitism=True
+----------------------------------------------------------------------
+Run 1: value=785, time=0.0699s
+Run 2: value=787, time=0.0690s
+Run 3: value=787, time=0.0675s
+Run 4: value=787, time=0.0485s
+Run 5: value=785, time=0.0542s
+>> avg=786.20, best=787, worst=785, avg_time=0.0618s, improve_vs_greedy=-0.10%
+
+======================================================================
+Setting 4: pop_size=200, gen=150, tourn_size=3, cross_rate=0.85, mut_rate=0.050, elitism=True
+----------------------------------------------------------------------
+Run 1: value=787, time=0.3972s
+Run 2: value=787, time=0.4378s
+Run 3: value=787, time=0.3715s
+Run 4: value=787, time=0.3859s
+Run 5: value=787, time=0.3686s
+>> avg=787.00, best=787, worst=787, avg_time=0.3922s, improve_vs_greedy=0.00%

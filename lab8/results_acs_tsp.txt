@@ -1,0 +1,68 @@
+================================================================================
+  ANT COLONY SYSTEM (ACS) -- Assignment A8 Experimental Results
+================================================================================
+
+--------------------------------------------------------------------------------
+Instance   : pr107 (n=107, known opt=44303)
+Setting tag: acs_base
+Parameters : beta=2.0, q0=0.9, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 47635.14, 46733.20
+Metrics    : avg=47184.17 | best=46733.20 | gap_to_opt=+5.49% | time_total=1.0s
+
+--------------------------------------------------------------------------------
+Instance   : pr107 (n=107, known opt=44303)
+Setting tag: high_q0
+Parameters : beta=2.0, q0=0.95, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 46273.12, 46671.62
+Metrics    : avg=46472.37 | best=46273.12 | gap_to_opt=+4.45% | time_total=0.8s
+
+--------------------------------------------------------------------------------
+Instance   : pr107 (n=107, known opt=44303)
+Setting tag: low_q0
+Parameters : beta=2.0, q0=0.5, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 57730.56, 52972.04
+Metrics    : avg=55351.30 | best=52972.04 | gap_to_opt=+19.57% | time_total=0.9s
+
+--------------------------------------------------------------------------------
+Instance   : pr107 (n=107, known opt=44303)
+Setting tag: high_beta
+Parameters : beta=5.0, q0=0.9, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 45736.09, 46461.37
+Metrics    : avg=46098.73 | best=45736.09 | gap_to_opt=+3.23% | time_total=0.9s
+
+--------------------------------------------------------------------------------
+Instance   : lu980 (n=980, known opt=11340)
+Setting tag: acs_base
+Parameters : beta=2.0, q0=0.9, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 15749.44, 15378.53
+Metrics    : avg=15563.98 | best=15378.53 | gap_to_opt=+35.61% | time_total=88.7s
+
+--------------------------------------------------------------------------------
+Instance   : lu980 (n=980, known opt=11340)
+Setting tag: high_q0
+Parameters : beta=2.0, q0=0.95, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 14751.29, 14728.58
+Metrics    : avg=14739.93 | best=14728.58 | gap_to_opt=+29.88% | time_total=47.8s
+
+--------------------------------------------------------------------------------
+Instance   : lu980 (n=980, known opt=11340)
+Setting tag: low_q0
+Parameters : beta=2.0, q0=0.5, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 25103.09, 21726.67
+Metrics    : avg=23414.88 | best=21726.67 | gap_to_opt=+91.59% | time_total=50.3s
+
+--------------------------------------------------------------------------------
+Instance   : lu980 (n=980, known opt=11340)
+Setting tag: high_beta
+Parameters : beta=5.0, q0=0.9, rho=0.1, xi=0.1, n_ants=10, iterations=20
+Runs       : 2
+Individual : 13116.36, 13368.13
+Metrics    : avg=13242.24 | best=13116.36 | gap_to_opt=+15.66% | time_total=48.7s
+
