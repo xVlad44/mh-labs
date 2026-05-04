@@ -183,6 +183,7 @@ def random_search(
 def summarize(values: Sequence[float]) -> Dict[str, float]:
     return {
         "avg": statistics.mean(values),
+        "median": statistics.median(values),
         "best": min(values),
         "worst": max(values),
         "std": statistics.pstdev(values),
@@ -191,7 +192,7 @@ def summarize(values: Sequence[float]) -> Dict[str, float]:
 
 def run_experiments(
     output_dir: Path,
-    runs: int = 10,
+    runs: int = 30,
     dimension: int = 10,
     seed: int = 42,
 ) -> Dict[str, object]:
@@ -234,9 +235,11 @@ def run_experiments(
                 "dimension": dimension,
                 "evaluations_per_run": eval_budget,
                 "avg": stats["avg"],
+                "median": stats["median"],
                 "best": stats["best"],
                 "worst": stats["worst"],
                 "std": stats["std"],
+                "gap_to_known_optimum": abs(stats["avg"] - benchmark.optimum),
                 "params": json.dumps(config),
                 "individual_runs": json.dumps(values),
             }
@@ -266,9 +269,11 @@ def run_experiments(
                 "dimension": dimension,
                 "evaluations_per_run": balanced_budget,
                 "avg": stats["avg"],
+                "median": stats["median"],
                 "best": stats["best"],
                 "worst": stats["worst"],
                 "std": stats["std"],
+                "gap_to_known_optimum": abs(stats["avg"] - benchmark.optimum),
                 "params": json.dumps({"evaluations": balanced_budget}),
                 "individual_runs": json.dumps(values),
             }
@@ -323,23 +328,28 @@ def write_text_report(path: Path, rows: Sequence[Dict[str, object]]) -> None:
         "=" * 78,
         "CUCKOO SEARCH VIA LEVY FLIGHTS -- FINAL PROJECT EXPERIMENTS",
         "=" * 78,
-        "All objective functions are minimized. Each row summarizes 10 independent runs.",
+        f"All objective functions are minimized. Each row summarizes {rows[0]['runs']} independent runs.",
         "",
     ]
     for function in functions:
         lines.append("-" * 78)
         lines.append(f"FUNCTION: {function}")
         lines.append("-" * 78)
-        lines.append(f"{'Setting':<18} {'Algorithm':<16} {'Avg':>13} {'Best':>13} {'Worst':>13} {'Std':>13}")
+        lines.append(
+            f"{'Setting':<18} {'Algorithm':<16} {'Avg':>13} {'Median':>13} "
+            f"{'Best':>13} {'Worst':>13} {'Std':>13} {'Gap':>13}"
+        )
         for row in rows:
             if row["function"] != function:
                 continue
             lines.append(
                 f"{row['setting']:<18} {row['algorithm']:<16} "
                 f"{format_float(float(row['avg'])):>13} "
+                f"{format_float(float(row['median'])):>13} "
                 f"{format_float(float(row['best'])):>13} "
                 f"{format_float(float(row['worst'])):>13} "
-                f"{format_float(float(row['std'])):>13}"
+                f"{format_float(float(row['std'])):>13} "
+                f"{format_float(float(row['gap_to_known_optimum'])):>13}"
             )
         lines.append("")
 

@@ -48,6 +48,12 @@ const C = {
   white: "#FFFFFF",
 };
 
+const OPTIMA = {
+  Sphere: 0,
+  Rastrigin: 0,
+  Michalewicz: -9.66,
+};
+
 const titleStyle = { fontFace: "Aptos Display", fontSize: 62, bold: true, color: C.ink };
 const sectionTitle = { fontFace: "Aptos Display", fontSize: 74, bold: true, color: C.ink };
 const bodyStyle = { fontFace: "Aptos", fontSize: 29, color: C.ink };
@@ -64,6 +70,25 @@ function fmt(value) {
   if (n === 0) return "0";
   if (Math.abs(n) >= 1000 || Math.abs(n) < 0.001) return n.toExponential(2);
   return n.toFixed(Math.abs(n) < 10 ? 3 : 2);
+}
+
+function fmtSpread(rowData) {
+  return `${fmt(rowData.avg)} +/- ${fmt(rowData.std)}`;
+}
+
+function runValues(rowData) {
+  return JSON.parse(rowData.individual_runs || "[]").map(Number);
+}
+
+function pairedWins(cs, rs) {
+  const a = runValues(cs);
+  const b = runValues(rs);
+  const count = Math.min(a.length, b.length);
+  let wins = 0;
+  for (let i = 0; i < count; i++) {
+    if (a[i] < b[i]) wins += 1;
+  }
+  return `${wins}/${count}`;
 }
 
 function bestRow(fnName) {
@@ -187,7 +212,7 @@ function tableRow(values, opts = {}) {
       name: header ? "table-header" : "table-row",
       width: fill,
       height: hug,
-      columns: [fr(0.95), fr(1.05), fr(1), fr(1.4)],
+      columns: [fr(0.85), fr(1.1), fr(1), fr(0.78), fr(0.74)],
       columnGap: 22,
       padding: { y: 12 },
     },
@@ -198,7 +223,7 @@ function tableRow(values, opts = {}) {
         height: hug,
         style: {
           fontFace: "Aptos",
-          fontSize: header ? 19 : 22,
+          fontSize: header ? 18 : 20,
           bold: header,
           color,
         },
@@ -212,12 +237,69 @@ function resultRows() {
   return functions.map((fn) => {
     const cs = bestRow(fn);
     const rs = randomRow(fn);
-    let takeaway;
-    if (fn === "Sphere") takeaway = "near-zero refinement";
-    else if (fn === "Rastrigin") takeaway = "escapes many local basins";
-    else takeaway = "close, but not guaranteed";
-    return [fn, `${cs.setting.replace("CS-", "")}: ${fmt(cs.avg)}`, fmt(rs.avg), takeaway];
+    return [
+      fn,
+      `${cs.setting.replace("CS-", "")}: ${fmtSpread(cs)}`,
+      fmt(rs.avg),
+      fmt(Math.abs(Number(cs.avg) - OPTIMA[fn])),
+      pairedWins(cs, rs),
+    ];
   });
+}
+
+function benchmarkBand(name, why, expected, color) {
+  return column(
+    { name: `${name.toLowerCase()}-band`, width: fill, height: hug, gap: 12 },
+    [
+      rule({ name: `${name.toLowerCase()}-rule`, width: fill, stroke: C.rule, weight: 2 }),
+      grid(
+        { name: `${name.toLowerCase()}-row`, width: fill, height: hug, columns: [fr(0.72), fr(1.35), fr(1.25)], columnGap: 36, padding: { y: 12 } },
+        [
+          text(name, { name: `${name.toLowerCase()}-name`, width: fill, height: hug, style: { fontFace: "Aptos Display", fontSize: 38, bold: true, color } }),
+          text(why, { name: `${name.toLowerCase()}-why`, width: fill, height: hug, style: { ...bodyStyle, fontSize: 25 } }),
+          text(expected, { name: `${name.toLowerCase()}-expected`, width: fill, height: hug, style: { ...bodyStyle, fontSize: 25, color: C.muted } }),
+        ],
+      ),
+    ],
+  );
+}
+
+function miniMetric(label, value, color) {
+  return column(
+    { name: "mini-metric", width: fill, height: hug, gap: 6 },
+    [
+      text(value, {
+        name: "mini-metric-value",
+        width: fill,
+        height: hug,
+        style: { fontFace: "Aptos Display", fontSize: 48, bold: true, color },
+      }),
+      text(label, {
+        name: "mini-metric-label",
+        width: fill,
+        height: hug,
+        style: { fontFace: "Aptos", fontSize: 18, color: C.muted },
+      }),
+    ],
+  );
+}
+
+
+function mappingBand(ruleText, meaning, implementation, color) {
+  return column(
+    { name: `${ruleText.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-band`, width: fill, height: hug, gap: 12 },
+    [
+      rule({ name: `${ruleText.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-rule`, width: fill, stroke: C.rule, weight: 2 }),
+      grid(
+        { name: `${ruleText.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-row`, width: fill, height: hug, columns: [fr(0.9), fr(1.35), fr(1.45)], columnGap: 36, padding: { y: 14 } },
+        [
+          text(ruleText, { name: "paper-rule-cell", width: fill, height: hug, style: { fontFace: "Aptos Display", fontSize: 32, bold: true, color } }),
+          text(meaning, { name: "meaning-cell", width: fill, height: hug, style: { ...bodyStyle, fontSize: 25 } }),
+          text(implementation, { name: "implementation-cell", width: fill, height: hug, style: { ...bodyStyle, fontSize: 25, color: C.muted } }),
+        ],
+      ),
+    ],
+  );
 }
 
 async function main() {
@@ -263,7 +345,7 @@ async function main() {
     column(
       { name: "content", width: fill, height: fill, gap: 34 },
       [
-        slideTitle("Motivation", "A population search with rare long jumps", "CS keeps good nests, perturbs them with Levy flights, and periodically replaces discovered weak nests."),
+        slideTitle("Motivation", "A population search with rare long jumps", "Related to evolutionary algorithms and PSO through population search; distinctive because exploration uses heavy-tailed Levy flights."),
         row(
           { name: "two-forces", width: fill, height: grow(1), gap: 56, align: "center" },
           [
@@ -300,23 +382,25 @@ async function main() {
       { name: "content", width: fill, height: fill, gap: 30 },
       [
         slideTitle("Definition", "From metaphor to optimization objects", "The biological story is only a design analogy. In code, everything becomes candidate solutions and objective values."),
-        grid(
-          { name: "mapping-table", width: fill, height: grow(1), columns: [fr(0.9), fr(1.45), fr(1.45)], rowGap: 16, columnGap: 32 },
-          [
-            text("Paper rule", { name: "h1", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("Optimization meaning", { name: "h2", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("What my demo implements", { name: "h3", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("One egg", { name: "r1c1", width: fill, height: hug, style: bodyStyle }),
-            text("One new candidate solution", { name: "r1c2", width: fill, height: hug, style: bodyStyle }),
-            text("Levy-generated vector in 10D", { name: "r1c3", width: fill, height: hug, style: bodyStyle }),
-            text("Best nests survive", { name: "r2c1", width: fill, height: hug, style: bodyStyle }),
-            text("Elitist selection", { name: "r2c2", width: fill, height: hug, style: bodyStyle }),
-            text("Global best is copied back if needed", { name: "r2c3", width: fill, height: hug, style: bodyStyle }),
-            text("Discovery pa", { name: "r3c1", width: fill, height: hug, style: bodyStyle }),
-            text("Abandon weak regions", { name: "r3c2", width: fill, height: hug, style: bodyStyle }),
-            text("Population random walk replacement", { name: "r3c3", width: fill, height: hug, style: bodyStyle }),
-          ],
-        ),
+        column({ name: "mapping-table", width: fill, height: hug, gap: 6 }, [
+          grid(
+            { name: "mapping-header", width: fill, height: hug, columns: [fr(0.9), fr(1.35), fr(1.45)], columnGap: 36 },
+            [
+              text("Paper rule", { name: "h1", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+              text("Optimization meaning", { name: "h2", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+              text("What my demo implements", { name: "h3", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+            ],
+          ),
+          mappingBand("One egg", "new candidate solution", "Levy-generated vector in 10D", C.teal),
+          mappingBand("Best nests survive", "elitist selection", "global best copied back if needed", C.rust),
+          mappingBand("Discovery pa", "abandon weak regions", "population random-walk replacement", C.violet),
+          rule({ name: "mapping-bottom-rule", width: fill, stroke: C.rule, weight: 2 }),
+        ]),
+        row({ name: "definition-details", width: fill, height: grow(1), gap: 56, align: "center" }, [
+          metric("candidate", "x in R^10", C.teal),
+          metric("fitness", "min f(x)", C.rust),
+          metric("selection", "elitist", C.violet),
+        ]),
         footer(),
       ],
     ),
@@ -361,19 +445,44 @@ async function main() {
       [
         slideTitle("Levy Flights", "Small steps usually, large jumps sometimes", "That heavy tail is the search trick: local refinement remains possible, but the algorithm can still jump out of a bad basin."),
         row(
-          { name: "levy-metrics", width: fill, height: grow(1), gap: 60, align: "center" },
+          { name: "levy-body", width: fill, height: grow(1), gap: 70, align: "center" },
           [
-            metric("normal local search move", "small", C.teal),
-            metric("Levy-flight escape move", "rare", C.rust),
-            metric("effect on search", "mixed", C.violet),
+            column({ name: "levy-metrics", width: grow(1), height: hug, gap: 28 }, [
+              miniMetric("normal local search move", "small", C.teal),
+              miniMetric("Levy-flight escape move", "rare", C.rust),
+              miniMetric("effect on search", "mixed", C.violet),
+            ]),
+            panel(
+              { name: "levy-formula-artifact", width: fixed(780), height: hug, fill: "#F4EFE7", padding: { x: 34, y: 30 }, borderRadius: 8 },
+              column({ name: "formula-stack", width: fill, height: hug, gap: 18 }, [
+                text("Implementation detail", {
+                  name: "formula-kicker",
+                  width: fill,
+                  height: hug,
+                  style: { fontFace: "Aptos", fontSize: 20, bold: true, color: C.teal },
+                }),
+                text("step = alpha * Levy(beta) * (x_i - best)", {
+                  name: "formula-main",
+                  width: fill,
+                  height: hug,
+                  style: { ...monoStyle, fontSize: 25 },
+                }),
+                text("Mantegna sampler: Levy(beta) = u / |v|^(1 / beta), beta = 1.5", {
+                  name: "formula-detail",
+                  width: fill,
+                  height: hug,
+                  style: { fontFace: "Aptos", fontSize: 24, color: C.ink },
+                }),
+                text("After the move, each coordinate is clipped to the benchmark domain.", {
+                  name: "formula-note",
+                  width: fill,
+                  height: hug,
+                  style: { fontFace: "Aptos", fontSize: 22, color: C.muted },
+                }),
+              ]),
+            ),
           ],
         ),
-        text("In the implementation, Mantegna sampling generates the heavy-tailed steps; values outside the domain are clipped back to valid bounds.", {
-          name: "levy-caption",
-          width: wrap(1260),
-          height: hug,
-          style: { ...bodyStyle, color: C.muted },
-        }),
         footer(),
       ],
     ),
@@ -384,27 +493,25 @@ async function main() {
     column(
       { name: "content", width: fill, height: fill, gap: 28 },
       [
-        slideTitle("Demo Design", "Three benchmarks, one fair baseline", "I used continuous test functions because the original paper validates CS on test functions, and the semester labs already used Sphere and Michalewicz."),
-        grid(
-          { name: "benchmark-grid", width: fill, height: grow(1), columns: [fr(0.8), fr(1.15), fr(1.55)], rowGap: 18, columnGap: 32 },
-          [
-            text("Function", { name: "b-h1", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("Why it is useful", { name: "b-h2", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("Expected behavior", { name: "b-h3", width: fill, height: hug, style: { ...bodyStyle, bold: true, color: C.teal } }),
-            text("Sphere", { name: "b1", width: fill, height: hug, style: bodyStyle }),
-            text("smooth unimodal sanity check", { name: "b2", width: fill, height: hug, style: bodyStyle }),
-            text("should converge close to zero", { name: "b3", width: fill, height: hug, style: bodyStyle }),
-            text("Rastrigin", { name: "b4", width: fill, height: hug, style: bodyStyle }),
-            text("many regular local minima", { name: "b5", width: fill, height: hug, style: bodyStyle }),
-            text("large jumps should help", { name: "b6", width: fill, height: hug, style: bodyStyle }),
-            text("Michalewicz", { name: "b7", width: fill, height: hug, style: bodyStyle }),
-            text("sharp multimodal valleys", { name: "b8", width: fill, height: hug, style: bodyStyle }),
-            text("good solutions, not guaranteed optimum", { name: "b9", width: fill, height: hug, style: bodyStyle }),
-          ],
-        ),
+        slideTitle("Demo Design", "Three benchmarks, one fair baseline", "Continuous functions match the original CS paper, connect to the semester labs, and make the exploration-exploitation trade-off visible."),
+        column({ name: "benchmark-bands", width: fill, height: hug, gap: 6 }, [
+          grid(
+            { name: "benchmark-header", width: fill, height: hug, columns: [fr(0.72), fr(1.35), fr(1.25)], columnGap: 36 },
+            [
+              text("Function", { name: "b-h1", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+              text("Why it is useful", { name: "b-h2", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+              text("Expected behavior", { name: "b-h3", width: fill, height: hug, style: { ...bodyStyle, fontSize: 22, bold: true, color: C.teal } }),
+            ],
+          ),
+          benchmarkBand("Sphere", "smooth unimodal sanity check", "converge close to zero", C.teal),
+          benchmarkBand("Rastrigin", "regular local minima across the domain", "large jumps should help", C.rust),
+          benchmarkBand("Michalewicz", "sharp multimodal valleys", "good solutions, not guaranteed optimum", C.violet),
+          rule({ name: "benchmark-bottom-rule", width: fill, stroke: C.rule, weight: 2 }),
+        ]),
         row({ name: "demo-details", width: fill, height: hug, gap: 46 }, [
-          metric("independent runs", "10", C.teal),
+          metric("independent runs", "30", C.teal),
           metric("dimensions", "10D", C.rust),
+          metric("per-run budget", "~10k evals", C.gold),
           metric("baseline", "same budget", C.violet),
         ]),
         footer(),
@@ -417,11 +524,11 @@ async function main() {
     column(
       { name: "content", width: fill, height: fill, gap: 24 },
       [
-        slideTitle("Results", "CS beats random search on every benchmark", "The table reports the best CS setting by average performance, compared with Random Search using the same evaluation budget."),
+        slideTitle("Results", "CS beats random search on every benchmark", "Best CS setting by average performance over 30 runs; lower objective value and smaller gap are better."),
         column(
           { name: "result-table", width: fill, height: hug, gap: 0 },
           [
-            tableRow(["Benchmark", "Best CS avg", "Random avg", "Main read"], { header: true, color: C.teal }),
+            tableRow(["Benchmark", "Best CS avg +/- std", "Random avg", "Gap", "Wins"], { header: true, color: C.teal }),
             rule({ name: "table-rule", width: fill, stroke: C.rule, weight: 2 }),
             ...resultRows().flatMap((values, i) => [
               tableRow(values, { color: i === 2 ? C.ink : C.ink }),
@@ -434,7 +541,7 @@ async function main() {
           metric("Rastrigin avg", fmt(bestRow("Rastrigin").avg), C.rust),
           metric("Michalewicz best run", fmt(Math.min(...byFunction.get("Michalewicz").filter((r) => r.algorithm === "Cuckoo Search").map((r) => Number(r.best)))), C.violet),
         ]),
-        footer("Experiments in Cuckoo_Search_via_Levy_Flights_Final.ipynb; lower objective value is better."),
+        footer("Experiments in Cuckoo_Search_via_Levy_Flights_Final.ipynb; wins compare CS and Random Search run indices under the same budget."),
       ],
     ),
   );
@@ -444,7 +551,7 @@ async function main() {
     column(
       { name: "content", width: fill, height: fill, gap: 26 },
       [
-        slideTitle("Convergence", "The useful pattern is fast early improvement", "Average curves over 10 runs show where CS is stable and where it remains sensitive to settings."),
+        slideTitle("Convergence", "The useful pattern is fast early improvement", "Average curves over 30 runs show where CS is stable and where it remains sensitive to settings."),
         row(
           { name: "plot-and-read", width: fill, height: grow(1), gap: 48, align: "center" },
           [
@@ -467,7 +574,7 @@ async function main() {
             ]),
           ],
         ),
-        footer("Representative plot from the same 10-run experiment; Sphere and Rastrigin plots are saved in the output folder."),
+        footer("Representative plot from the same 30-run experiment; Sphere and Rastrigin plots are saved in the output folder."),
       ],
     ),
   );

@@ -44,21 +44,23 @@ local basin. I use Mantegna's algorithm to sample the Levy steps.
 I tested on three functions. Sphere is a smooth sanity check, so good algorithms
 should approach zero. Rastrigin has many local minima, so it tests exploration.
 Michalewicz is harder and was also used in previous labs, so it is useful for
-comparison. Each setting is run 10 times in 10 dimensions, and Random Search
-uses the same evaluation budget.
+comparison. Each setting is run 30 times in 10 dimensions, and Random Search
+uses the same evaluation budget. I report average, median, variability, and
+gap to the known optimum, so the demo is not based on a single lucky run.
 
 ## Slide 7 - Results, 70s
 
-The main result is that Cuckoo Search beats Random Search on all benchmarks.
-On Sphere, the best setting reaches around `3e-7`, so it shows strong
-refinement. On Rastrigin, it does not always reach the global optimum, but it is
-far better than random sampling. On Michalewicz, the best run reaches about
-`-9.38`, close to the known 10D optimum around `-9.66`, but not reliably at the
-optimum.
+The main result is that Cuckoo Search beats Random Search on all benchmarks
+under the same budget.
+On Sphere, the best setting reaches around `3e-7` on average, so it shows strong
+refinement. On Rastrigin, the best average is about `11.82` versus about
+`68.38` for Random Search, so it does not solve the function perfectly but it
+escapes many local basins. On Michalewicz, the best run reaches about `-9.38`,
+close to the known 10D optimum around `-9.66`, but not reliably at the optimum.
 
 ## Slide 8 - Convergence, 55s
 
-The convergence curve for Michalewicz shows a steep early improvement. This is
+The convergence curve for Michalewicz shows a steep early improvement averaged over 30 runs. This is
 typical for population metaheuristics: a lot of progress happens early, then
 the search slows down. The exploratory setting performs best here, but that
 does not mean more exploration is always better. It also increases variability.

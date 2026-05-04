@@ -108,7 +108,7 @@ The demo uses three benchmark functions:
 - **Rastrigin**: many regular local minima; tests whether large jumps help exploration.
 - **Michalewicz**: many sharp valleys; used in earlier labs, so it connects to the EA/PSO work.
 
-Each configuration is run 10 times in 10 dimensions. I compare three CS settings plus a simple Random Search baseline with the same evaluation budget as the balanced CS setting.
+Each configuration is run 30 times in 10 dimensions. I compare three CS settings plus a simple Random Search baseline with the same evaluation budget as the balanced CS setting. The table reports average, median, best/worst, standard deviation, and gap to the known optimum, so the discussion is based on reliability rather than a single lucky run.
                 """
             ),
             code_cell(
@@ -119,7 +119,7 @@ PROJECT_DIR = Path.cwd()
 if PROJECT_DIR.name != "final_cuckoo_search" and (PROJECT_DIR / "final_cuckoo_search").exists():
     PROJECT_DIR = PROJECT_DIR / "final_cuckoo_search"
 
-results = run_experiments(PROJECT_DIR / "output", runs=10, dimension=10, seed=42)
+results = run_experiments(PROJECT_DIR / "output", runs=30, dimension=10, seed=42)
 print((PROJECT_DIR / "output" / "cs_results.txt").read_text(encoding="utf-8"))
                 """
             ),
@@ -152,7 +152,7 @@ except Exception as exc:
                 """
 ## 6. Interpretation
 
-The balanced and exploratory CS settings clearly outperform Random Search on all three functions. This is the expected result: Levy flights provide global exploration, while elitism keeps the best nests from being lost.
+The balanced and exploratory CS settings clearly outperform Random Search on all three functions over 30 independent runs. This is the expected result: Levy flights provide global exploration, while elitism keeps the best nests from being lost.
 
 The exploratory setting performs best on Sphere and Michalewicz in this run, but it is also more variable. That is a useful discussion point: larger Levy steps can escape local minima, but they can also make the search less stable.
 
